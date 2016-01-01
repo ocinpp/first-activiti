@@ -1,5 +1,6 @@
 /target/
 /.settings/
+/.bpmn/
 
 # Eclipse Core
 .project
