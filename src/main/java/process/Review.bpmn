@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="reviewProcess2" name="Review Process 2" isExecutable="true">
+    <startEvent id="start" name="Start">
+      <documentation>Please fill in the request</documentation>
+      <extensionElements>
+        <activiti:formProperty id="request" name="Request" type="string" required="true"></activiti:formProperty>
+      </extensionElements>
+    </startEvent>
+    <userTask id="review" name="Review" activiti:assignee="${reviewer}">
+      <documentation>The document was submitted for review</documentation>
+      <extensionElements>
+        <activiti:formProperty id="approve" name="Approve?" type="boolean" required="true"></activiti:formProperty>
+      </extensionElements>
+      <multiInstanceLoopCharacteristics isSequential="true" activiti:collection="reviewers" activiti:elementVariable="reviewer">
+        <loopCardinality>2</loopCardinality>
+      </multiInstanceLoopCharacteristics>
+    </userTask>
+    <userTask id="process" name="Process" activiti:candidateGroups="management">
+      <documentation>The document was reviewed and approved.</documentation>
+    </userTask>
+    <sequenceFlow id="flow2" sourceRef="review" targetRef="process"></sequenceFlow>
+    <endEvent id="end" name="End"></endEvent>
+    <sequenceFlow id="flow3" sourceRef="process" targetRef="end"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="start" targetRef="review"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_reviewProcess2">
+    <bpmndi:BPMNPlane bpmnElement="reviewProcess2" id="BPMNPlane_reviewProcess2">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="35.0" width="35.0" x="250.0" y="160.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="review" id="BPMNShape_review">
+        <omgdc:Bounds height="55.0" width="105.0" x="360.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="process" id="BPMNShape_process">
+        <omgdc:Bounds height="55.0" width="105.0" x="520.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_end">
+        <omgdc:Bounds height="35.0" width="35.0" x="680.0" y="160.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="465.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="520.0" y="177.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="625.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="177.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="285.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="360.0" y="177.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
