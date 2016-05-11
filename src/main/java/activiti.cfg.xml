@@ -33,4 +33,8 @@
         
 	<bean id="identityService" factory-bean="processEngine"
         factory-method="getIdentityService" />
+        
+    <bean id="sampleService" class="test.SampleService"/>
+    
+    <bean id="sampleDelegateService" class="test.SampleDelegateService"/>        
 </beans>
