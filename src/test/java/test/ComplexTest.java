@@ -6,6 +6,7 @@ package test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,8 +99,9 @@ public class ComplexTest {
 		Assert.assertEquals("Review", task.getName());
 		Assert.assertEquals("gonzo", task.getAssignee());
 
-		Map<String, Object> taskVariables = new HashMap<String, Object>();
-		taskVariables.put("approve", true);
+		Map<String, Object> taskVariables = Collections.singletonMap("approve", (Object) new Boolean(true));
+//		Map<String, Object> taskVariables = new HashMap<String, Object>();
+//		taskVariables.put("approve", true);
 		taskService.addComment(task.getId(), task.getProcessInstanceId(), "First Reviewer Comment");
 		taskService.complete(task.getId(), taskVariables);
 
