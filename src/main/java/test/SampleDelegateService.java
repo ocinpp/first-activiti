@@ -9,7 +9,7 @@ import org.activiti.engine.delegate.JavaDelegate;
 
 public class SampleDelegateService implements JavaDelegate {
 
-	public void execute(DelegateExecution execution) throws Exception {
+	public void execute(DelegateExecution execution) {
 		System.out.println("Testing here in SampleDelegateService");
 		System.out.println("Variables (SampleDelegateService) b4: " + execution.getVariables());
 		execution.setVariable("delegateResult", "passed");
