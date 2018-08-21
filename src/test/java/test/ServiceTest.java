@@ -49,7 +49,7 @@ public class ServiceTest {
 	@Test
 	@Deployment(resources = { "process/Service.bpmn" })
 	public void testDeployment() {
-		long definitionCount = repositoryService.createProcessDefinitionQuery().count();
+		long definitionCount = repositoryService.createProcessDefinitionQuery().processDefinitionName("My Service Process").count();
 		System.out.println("Number of process definitions: " + definitionCount);
 		Assert.assertEquals(null, 1, definitionCount);
 		

@@ -59,7 +59,7 @@ public class ProcessTest {
 
 		// {processDefinitionKey}:{processDefinitionVersion}:{generated-id}
 		System.out.println(repositoryService.createProcessDefinitionQuery().list());
-		ProcessDefinition processDefinition = repositoryService.getProcessDefinition("helloWorldProcess:1:12");
+		ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionName("HelloWorldProcess").singleResult();
 		System.out.println("Process definition: " + processDefinition);
 		Assert.assertNotNull(processDefinition);
 
