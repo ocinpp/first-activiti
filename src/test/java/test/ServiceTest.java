@@ -65,7 +65,7 @@ public class ServiceTest {
 		// in history
 		HistoricProcessInstance historicProcessInstance = histProcess.get(0);
 		Assert.assertNotNull(historicProcessInstance);		
-		System.out.println(historicProcessInstance.getName());
+		System.out.println(historicProcessInstance);
 		
 		// get historic variable instances
 		List<HistoricVariableInstance> histVars = historyService.createHistoricVariableInstanceQuery().processInstanceId(p.getId()).list();
