@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>BPMN 2.0 with Activiti 5</name>
 	<properties>
-		<activiti-version>6.0.0</activiti-version>
+		<activiti-version>7.0.0.GA</activiti-version>
 		<spring-version>5.0.8.RELEASE</spring-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.8</version>
+			<version>2.9.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
